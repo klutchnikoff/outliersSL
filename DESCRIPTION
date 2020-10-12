@@ -1,0 +1,25 @@
+Package: robustSL
+Type: Package
+Title: a RObust SINgle linkagE (for clustering)
+Version: 0.1.0
+Authors@R: as.person(c(
+    "Nicolas Klutchnikoff
+    <nicolas.klutchnikoff@univ-rennes2.fr> [aut, cre]", 
+    "Audrey Poterir
+    <audrey.poterie@univ-ubs.fr> [aut]",
+    "Laurent Rouvière
+    <laurent.rouviere@univ-rennes2.fr> [aut]"
+  ))
+Maintainer: Nicolas Klutchnikoff <nicolas.klutchnikoff@univ-rennes2.fr>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Imports:
+  dplyr,
+  purrr,
+  magrittr,
+  graphics,
+  fastcluster
+RoxygenNote: 7.1.1

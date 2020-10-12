@@ -1,0 +1,44 @@
+---
+title: Example
+output: 
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+## Initialisations
+
+```{r include=FALSE}
+library(tidyverse)
+library(robustSL)
+```
+
+## Example 1
+
+```{r}
+I <- 100
+m <- 4
+RHC <- list()
+true_M <- paste0("M", m)
+theoretical_ratio <- sqrt(2)
+
+cpt <- list("true" = 0,
+            "relative_increments" = 0)
+for(i in 1:I){
+  df <- simulate_blocs(500, 
+                       M = m, 
+                       ratio_card_max = theoretical_ratio,
+                       epsilon = 0)
+  cl_true <- df$cluster
+  rhc <- df %>%
+    select(x, y) %>%
+    robust_hclust(M=2, Mmax = 10, method="single", M_init = 100)
+  RHC[[i]] <- rhc
+  cl_estim <- rhc[[true_M]]
+  if(check_clustering(cl_true, cl_estim)){
+    cpt[["true"]] <- cpt[["true"]] + 1
+  }
+  cpt
+}
+sapply(cpt, function(x) x/I)
+```
