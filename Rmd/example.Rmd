@@ -18,27 +18,35 @@ library(robustSL)
 ```{r}
 I <- 100
 m <- 4
-RHC <- list()
-true_M <- paste0("M", m)
+epsilon <- 0
 theoretical_ratio <- sqrt(2)
 
-cpt <- list("true" = 0,
-            "relative_increments" = 0)
+true_M <- paste0("M", m)
+cpt <- 0
 for(i in 1:I){
   df <- simulate_blocs(500, 
                        M = m, 
                        ratio_card_max = theoretical_ratio,
-                       epsilon = 0)
+                       epsilon = epsilon)
   cl_true <- df$cluster
-  rhc <- df %>%
+  cl_estim <- df %>%
     select(x, y) %>%
-    robust_hclust(M=2, Mmax = 10, method="single", M_init = 100)
-  RHC[[i]] <- rhc
-  cl_estim <- rhc[[true_M]]
+    robust_hclust(M=2, Mmax = 10, method="single", M_init = 100) %>% 
+    `[[`(true_M)
   if(check_clustering(cl_true, cl_estim)){
-    cpt[["true"]] <- cpt[["true"]] + 1
+    cpt <- cpt + 1
   }
   cpt
 }
-sapply(cpt, function(x) x/I)
+cpt/I
 ```
+## Example 2
+
+```{r}
+simulate_blocs(500, M=4, epsilon = 0.1) %>%
+  select(x, y) %>%
+  robust_hclust(M = 2, Mmax = 5, method = "single", M_init = 100) %>%
+  gather(key = "M", value = "groups", -x, -y) %>% 
+  ggplot() + aes(x, y) + facet_wrap(~M) + geom_point(aes(color=groups))
+```
+
