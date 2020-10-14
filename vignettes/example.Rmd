@@ -1,18 +1,26 @@
 ---
-title: Example
-author: Nicolas Klutchnikoff
-output: 
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
+title: "robustSL: example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-## Initialisations
-
-```{r include=FALSE}
-library(tidyverse)
-library(robustSL)
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 ```
+
+```{r setup}
+library(robustSL)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+```
+
 
 ## Example 1
 
@@ -41,6 +49,7 @@ for(i in 1:I){
 }
 cpt/I
 ```
+
 ## Example 2
 
 ```{r}
