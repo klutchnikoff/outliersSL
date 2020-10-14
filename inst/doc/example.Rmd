@@ -1,5 +1,6 @@
 ---
 title: Example
+author: Nicolas Klutchnikoff
 output: 
   prettydoc::html_pretty:
     theme: cayman
