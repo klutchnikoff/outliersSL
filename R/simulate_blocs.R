@@ -6,6 +6,8 @@
 #' @param epsilon todo
 #' @param trunc_eps todo
 #'
+#' @importFrom stats dist rmultinom runif
+#'
 #' @return
 #' @export
 #'
