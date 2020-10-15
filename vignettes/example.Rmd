@@ -1,8 +1,8 @@
 ---
-title: "robustSL: example"
+title: "Example"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{example}
+  %\VignetteIndexEntry{Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

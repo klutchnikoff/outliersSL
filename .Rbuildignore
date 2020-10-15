@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^Rmd$
 ^html$
+^doc$
+^Meta$
