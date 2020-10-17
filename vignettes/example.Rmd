@@ -25,17 +25,17 @@ library(tidyr)
 ## Example 1
 
 ```{r}
-I <- 100
+nb_MC <- 1 # MC replications
 m <- 4
 epsilon <- 0
-theoretical_ratio <- sqrt(2)
+ratio <- sqrt(2)
 
 true_M <- paste0("M", m)
 cpt <- 0
-for(i in 1:I){
+for(i in 1:nb_MC){
   df <- simulate_blocs(500, 
                        M = m, 
-                       ratio_card_max = theoretical_ratio,
+                       ratio_card_max = ratio,
                        epsilon = epsilon)
   cl_true <- df$cluster
   cl_estim <- df %>%
@@ -47,7 +47,7 @@ for(i in 1:I){
   }
   cpt
 }
-cpt/I
+cpt/nb_MC
 ```
 
 ## Example 2
