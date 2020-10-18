@@ -60,3 +60,9 @@ simulate_blocs(500, M=4, epsilon = 0.1) %>%
   ggplot() + aes(x, y) + facet_wrap(~M) + geom_point(aes(color=groups))
 ```
 
+## Example 3
+```{r}
+simulate_blocs(500, M=4, epsilon = 0.1) %>%
+  ggplot() + aes(x, y) + geom_point(color = "black")
+```
+
