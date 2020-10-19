@@ -2,24 +2,32 @@
 % Please edit documentation in R/simulate_blocs.R
 \name{simulate_blocs}
 \alias{simulate_blocs}
-\title{Title}
+\title{Simulate data grouped into different blocks}
 \usage{
 simulate_blocs(n, M = 2, ratio_card_max = 2, epsilon = 0, trunc_eps = TRUE)
 }
 \arguments{
-\item{n}{todo}
+\item{n}{number of observations}
 
-\item{M}{todo}
+\item{M}{number of blocks}
 
-\item{ratio_card_max}{todo}
+\item{ratio_card_max}{maximal value of the ratio between the cardinality of the different groups}
 
-\item{epsilon}{todo}
+\item{epsilon}{proportion of outliers}
 
-\item{trunc_eps}{todo}
+\item{trunc_eps}{TODO}
 }
 \value{
+a data-frame with three cols
 
+* x, y: the realizations of the
+* clusters:
 }
 \description{
-Title
+\Sexpr[results=rd, stage=render]{lifecycle::badge("questioning")}
+The function `simulate_blocs()` allows you to generate data grouped into different blocks. Outliers can be added to the data.
+}
+\examples{
+df <- simulate_blocs(500)
+
 }

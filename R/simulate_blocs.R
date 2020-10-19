@@ -1,16 +1,25 @@
-#' Title
+#' Simulate data grouped into different blocks
 #'
-#' @param n todo
-#' @param M todo
-#' @param ratio_card_max todo
-#' @param epsilon todo
-#' @param trunc_eps todo
+#' @description
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("questioning")}
+#' The function `simulate_blocs()` allows you to generate data grouped into different blocks. Outliers can be added to the data.
+#' @param n number of observations
+#' @param M number of blocks
+#' @param ratio_card_max maximal value of the ratio between the cardinality of the different groups
+#' @param epsilon proportion of outliers
+#' @param trunc_eps TODO
 #'
 #' @importFrom stats dist rmultinom runif
 #'
-#' @return
-#' @export
+#' @return a data-frame with three cols
 #'
+#' * x, y: the realizations of the
+#' * clusters:
+#'
+#' @examples
+#' df <- simulate_blocs(500)
+#'
+#' @export
 simulate_blocs <- function(n,
                              M = 2,
                              ratio_card_max = 2,
@@ -42,7 +51,7 @@ simulate_blocs <- function(n,
 
   ##############################
   # tirage des rayons
-  # et des cetres en respectant
+  # et des cen  tres en respectant
   # les contraintes de l'article
   ##############################
 
